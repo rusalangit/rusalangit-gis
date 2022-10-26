@@ -8,9 +8,17 @@ export const locationsReducer = (state, action) => {
 			return {
 				locations: action.payload,
 			}
+
 		case "CREATE_LOCATION":
 			return {
 				locations: [action.payload, ...state.locations],
+			}
+
+		case "DELETE_LOCATION":
+			return {
+				locations: state.locations.filter((l) => {
+					l._id !== action.payload._id
+				}),
 			}
 
 		default:

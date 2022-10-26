@@ -1,25 +1,9 @@
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet"
-import { useEffect, useState } from "react"
 import { useLocationsContext } from "../hooks/useLocationsContext"
 
 const Map = () => {
-	const { locations, dispatch } = useLocationsContext()
+	const { locations } = useLocationsContext()
 	const basePosition = [-6.6099, 106.77969]
-
-	useEffect(() => {
-		const fetchLocations = async () => {
-			const response = await fetch(
-				"https://rusalangit-gis-backend.vercel.app/api/locations"
-			)
-			const json = await response.json()
-
-			if (response.ok) {
-				dispatch({ type: "SET_LOCATIONS", payload: json })
-			}
-		}
-
-		fetchLocations()
-	}, [])
 
 	return (
 		<>

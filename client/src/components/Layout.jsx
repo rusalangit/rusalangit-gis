@@ -3,7 +3,7 @@ import Footer from "./Footer"
 import Sidebar from "./Sidebar"
 import { Outlet } from "react-router-dom"
 
-const Layout = ({ children }) => {
+const Layout = () => {
 	return (
 		<>
 			<Header />
