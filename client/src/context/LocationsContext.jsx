@@ -12,6 +12,7 @@ export const locationsReducer = (state, action) => {
 			return {
 				locations: [action.payload, ...state.locations],
 			}
+
 		default:
 			return state
 	}
@@ -21,7 +22,6 @@ export const LocationsContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(locationsReducer, {
 		locations: null,
 	})
-
 	return (
 		<LocationsContext.Provider value={{ ...state, dispatch }}>
 			{children}

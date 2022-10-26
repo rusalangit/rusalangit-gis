@@ -13,13 +13,16 @@ const AddLocationForm = () => {
 
 		const location = { title, latitude, longitude }
 
-		const response = await fetch("http://localhost:4000/api/locations", {
-			method: "POST",
-			body: JSON.stringify(location),
-			headers: {
-				"Content-Type": "application/json",
-			},
-		})
+		const response = await fetch(
+			"https://rusalangit-gis-backend.vercel.app/api/locations",
+			{
+				method: "POST",
+				body: JSON.stringify(location),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		)
 
 		const json = await response.json()
 

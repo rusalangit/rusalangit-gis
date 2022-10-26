@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 const Login = lazy(() => import("./pages/Login"))
 const Register = lazy(() => import("./pages/Register"))
 const Layout = lazy(() => import("./components/Layout"))
+const Lahan = lazy(() => import("./pages/Lahan"))
 const Dashboard = lazy(() => import("./pages/Dashboard"))
 const Database = lazy(() => import("./pages/Database"))
 const Setting = lazy(() => import("./pages/Setting"))
@@ -19,10 +20,12 @@ const App = () => {
 					<Route path="/register" element={<Register />} />
 					<Route path="/" element={<Layout />}>
 						<Route index element={<Dashboard />} />
+						<Route path="lahan" element={<Lahan />} />
 						<Route
 							path="formpenambahan"
 							element={<AddLocationForm />}
 						/>
+						<Route />
 						<Route path="database" element={<Database />} />
 						<Route path="setting" element={<Setting />} />
 					</Route>

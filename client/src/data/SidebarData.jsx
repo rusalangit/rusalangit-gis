@@ -5,6 +5,11 @@ export const SidebarData = [
 		image: "dashboard",
 	},
 	{
+		title: "Lahan",
+		path: "/lahan",
+		image: "database",
+	},
+	{
 		title: "Database",
 		path: "/database",
 		image: "database",

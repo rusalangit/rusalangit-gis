@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom"
 import { useState } from "react"
 import DividerLine from "./ui/DividerLine"
 import HamburgerButton from "./ui/HamburgerButton"
-import { SidebarData } from "../pages/data/SidebarData"
+import { SidebarData } from "../data/SidebarData"
 
 const Sidebar = () => {
 	const [sidebar, setSidebar] = useState(true)
