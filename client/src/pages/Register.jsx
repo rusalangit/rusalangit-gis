@@ -1,5 +1,3 @@
-import Layout from "../components/layout"
-
 const Register = () => {
 	return (
 		<div className="w-screen h-screen flex flex-row">

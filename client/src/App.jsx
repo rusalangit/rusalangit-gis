@@ -8,7 +8,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"))
 const Database = lazy(() => import("./pages/Database"))
 const Setting = lazy(() => import("./pages/Setting"))
 
-const WorkoutForm = lazy(() => import("./components/LocationForm"))
+const LocationForm = lazy(() => import("./components/LocationForm"))
 
 const App = () => {
 	return (
@@ -19,7 +19,7 @@ const App = () => {
 					<Route path="/register" element={<Register />} />
 					<Route path="/" element={<Layout />}>
 						<Route index element={<Dashboard />} />
-						<Route path="add-lahan" element={<WorkoutForm />} />
+						<Route path="tambah-lahan" element={<LocationForm />} />
 						<Route path="database" element={<Database />} />
 						<Route path="setting" element={<Setting />} />
 					</Route>
