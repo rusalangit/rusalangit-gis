@@ -10,14 +10,12 @@ const AddLocationForm = () => {
     const [latitude, setLatitude] = useState("")
     const [longitude, setLongitude] = useState("")
     const [error, setError] = useState(null)
-    const [emptyFields, setEmptyFields] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         const location = { title, latitude, longitude }
 
-        console.log(emptyFields)
         const response = await fetch(
             "https://rusalangit-gis-backend.vercel.app/api/locations",
             {
@@ -33,7 +31,6 @@ const AddLocationForm = () => {
 
         if (!response.ok) {
             setError(json.error)
-            setEmptyFields(json.emptyFields)
         }
 
         if (response.ok) {
@@ -41,7 +38,6 @@ const AddLocationForm = () => {
             setLatitude("")
             setLongitude("")
             setError(null)
-            setEmptyFields([])
             console.log("Location added", json)
             dispatch({ type: "CREATE_LOCATION", payload: json })
             navigate("/database")
@@ -63,7 +59,7 @@ const AddLocationForm = () => {
                     }}
                     value={title}
                     className={
-                        emptyFields.includes("title")
+                        error?.includes("title")
                             ? "bg-red-300 border border-red-600 w-1/2 rounded-md p-2"
                             : "bg-slate-200 border border-slate-30 w-1/2 rounded-md p-2"
                     }
@@ -81,7 +77,7 @@ const AddLocationForm = () => {
                     }}
                     value={latitude}
                     className={
-                        emptyFields.includes("latitude")
+                        error?.includes("latitude")
                             ? "bg-red-300 border border-red-600 w-1/2 rounded-md p-2"
                             : "bg-slate-200 border border-slate-30 w-1/2 rounded-md p-2"
                     }
@@ -102,7 +98,7 @@ const AddLocationForm = () => {
                     }}
                     value={longitude}
                     className={
-                        emptyFields.includes("longitude")
+                        error?.includes("longitude")
                             ? "bg-red-300 border border-red-600 w-1/2 rounded-md p-2"
                             : "bg-slate-200 border border-slate-30 w-1/2 rounded-md p-2"
                     }
@@ -116,7 +112,7 @@ const AddLocationForm = () => {
             </div>
             {error && (
                 <div className="w-4/6 p-6 border border-red-600 text-red-600 bg-red-200 my-8 rounded-md">
-                    {error}
+                    Fill all the required feed
                 </div>
             )}
         </form>

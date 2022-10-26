@@ -29,23 +29,6 @@ const getLocation = async (req, res) => {
 const createLocation = async (req, res) => {
     const { title, latitude, longitude } = req.body
 
-    let emptyFields = []
-
-    if (!title) {
-        emptyFields.push("title")
-    }
-    if (!latitude) {
-        emptyFields.push("latitude")
-    }
-    if (!longitude) {
-        emptyFields.push("longitude")
-    }
-    if (emptyFields > 0) {
-        return res
-            .status(400)
-            .json({ error: "Please fill in all the fields" }, emptyFields)
-    }
-
     // Add document to database
     try {
         const location = await Location.create({ title, latitude, longitude })
