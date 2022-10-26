@@ -8,7 +8,9 @@ const Map = () => {
 
 	useEffect(() => {
 		const fetchLocations = async () => {
-			const response = await fetch("http://localhost:4000/api/locations")
+			const response = await fetch(
+				"https://rusalangit-gis-backend.vercel.app/api/locations"
+			)
 			const json = await response.json()
 
 			if (response.ok) {
