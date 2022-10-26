@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useLocationsContext } from "../hooks/useLocationsContext"
 
-const WorkoutForm = () => {
+const AddLocationForm = () => {
 	const { dispatch } = useLocationsContext()
 	const [title, setTitle] = useState("")
 	const [latitude, setLatitude] = useState("")
@@ -73,4 +73,4 @@ const WorkoutForm = () => {
 	)
 }
 
-export default WorkoutForm
+export default AddLocationForm

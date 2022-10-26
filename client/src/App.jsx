@@ -8,7 +8,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"))
 const Database = lazy(() => import("./pages/Database"))
 const Setting = lazy(() => import("./pages/Setting"))
 
-const LocationForm = lazy(() => import("./components/LocationForm"))
+const AddLocationForm = lazy(() => import("./components/AddLocationForm"))
 
 const App = () => {
 	return (
@@ -19,7 +19,10 @@ const App = () => {
 					<Route path="/register" element={<Register />} />
 					<Route path="/" element={<Layout />}>
 						<Route index element={<Dashboard />} />
-						<Route path="tambah-lahan" element={<LocationForm />} />
+						<Route
+							path="formpenambahan"
+							element={<AddLocationForm />}
+						/>
 						<Route path="database" element={<Database />} />
 						<Route path="setting" element={<Setting />} />
 					</Route>
