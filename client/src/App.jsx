@@ -1,11 +1,11 @@
 import { Suspense, lazy } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-const Login = lazy(() => import("./pages/login"))
-const Register = lazy(() => import("./pages/register"))
-const Layout = lazy(() => import("./components/layout"))
-const Dashboard = lazy(() => import("./pages/dashboard"))
-const Database = lazy(() => import("./pages/database"))
+const Login = lazy(() => import("./pages/Login"))
+const Register = lazy(() => import("./pages/Register"))
+const Layout = lazy(() => import("./components/Layout"))
+const Dashboard = lazy(() => import("./pages/Dashboard"))
+const Database = lazy(() => import("./pages/Database"))
 const Setting = lazy(() => import("./pages/Setting"))
 
 const WorkoutForm = lazy(() => import("./components/LocationForm"))
