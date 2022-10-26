@@ -16,7 +16,7 @@ export const SidebarData = [
 	},
 	{
 		title: "Logout",
-		path: "/sign-in",
+		path: "/login",
 		image: "Logout",
 	},
 ]
