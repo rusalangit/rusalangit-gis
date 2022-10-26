@@ -17,6 +17,7 @@ const AddLocationForm = () => {
 
         const location = { title, latitude, longitude }
 
+        console.log(emptyFields)
         const response = await fetch(
             "https://rusalangit-gis-backend.vercel.app/api/locations",
             {
@@ -61,12 +62,11 @@ const AddLocationForm = () => {
                         setTitle(e.target.value)
                     }}
                     value={title}
-                    className={`
-                        ${
-                            emptyFields.includes(title)
-                                ? "bg-red-300 border border-red-600"
-                                : "bg-slate-200 border border-slate-30"
-                        } w-1/2 rounded-md p-2`}
+                    className={
+                        emptyFields.includes("title")
+                            ? "bg-red-300 border border-red-600 w-1/2 rounded-md p-2"
+                            : "bg-slate-200 border border-slate-30 w-1/2 rounded-md p-2"
+                    }
                 ></input>
             </div>
             <div className="flex flex-row my-6">
@@ -80,12 +80,11 @@ const AddLocationForm = () => {
                         setLatitude(e.target.value)
                     }}
                     value={latitude}
-                    className={`
-                        ${
-                            emptyFields.includes(title)
-                                ? "bg-red-300 border border-red-600"
-                                : "bg-slate-200 border border-slate-30"
-                        } w-1/2 rounded-md p-2`}
+                    className={
+                        emptyFields.includes("latitude")
+                            ? "bg-red-300 border border-red-600 w-1/2 rounded-md p-2"
+                            : "bg-slate-200 border border-slate-30 w-1/2 rounded-md p-2"
+                    }
                 ></input>
             </div>
             <div className="flex flex-row my-6">
@@ -102,12 +101,11 @@ const AddLocationForm = () => {
                         setLongitude(e.target.value)
                     }}
                     value={longitude}
-                    className={`
-                        ${
-                            emptyFields.includes(title)
-                                ? "bg-red-300 border border-red-600"
-                                : "bg-slate-200 border border-slate-30"
-                        } w-1/2 rounded-md p-2`}
+                    className={
+                        emptyFields.includes("longitude")
+                            ? "bg-red-300 border border-red-600 w-1/2 rounded-md p-2"
+                            : "bg-slate-200 border border-slate-30 w-1/2 rounded-md p-2"
+                    }
                 ></input>
             </div>
             <div className="flex w-4/6 justify-end">
