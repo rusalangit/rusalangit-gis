@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { useEffect } from "react"
 import { useLocationsContext } from "./hooks/useLocationsContext"
 
-const Login = lazy(() => import("./pages/Login"))
-const Register = lazy(() => import("./pages/Register"))
+const SignIn = lazy(() => import("./pages/SignIn"))
+const SignUp = lazy(() => import("./pages/SignUp"))
 const Layout = lazy(() => import("./components/Layout"))
 const Dashboard = lazy(() => import("./pages/Dashboard"))
 const Database = lazy(() => import("./pages/Database"))
@@ -18,7 +18,7 @@ const App = () => {
     useEffect(() => {
         const fetchLocations = async () => {
             const response = await fetch(
-                "https://rusalangit-gis-backend.vercel.app/api/locations"
+                `${import.meta.env.VITE_EXPRESS_URI}/api/locations`
             )
             const json = await response.json()
 
@@ -34,8 +34,8 @@ const App = () => {
         <Router>
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
+                    <Route path="/signin" element={<SignIn />} />
+                    <Route path="/signup" element={<SignUp />} />
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Dashboard />} />
                         <Route path="database" element={<Database />} />

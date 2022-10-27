@@ -2,13 +2,13 @@ import { LocationsContext } from "../context/LocationsContext"
 import { useContext } from "react"
 
 export const useLocationsContext = () => {
-	const context = useContext(LocationsContext)
+    const context = useContext(LocationsContext)
 
-	if (!context) {
-		throw Error(
-			"useLocationsContext must be used inside LocationsContext Provider"
-		)
-	}
+    if (!context) {
+        throw Error(
+            "useLocationsContext must be used inside LocationsContextProvider"
+        )
+    }
 
-	return context
+    return context
 }

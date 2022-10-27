@@ -1,11 +1,10 @@
 import { useState } from "react"
 import { useLocationsContext } from "../hooks/useLocationsContext"
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const AddLocationForm = () => {
     const navigate = useNavigate()
     const { dispatch } = useLocationsContext()
-
     const [title, setTitle] = useState("")
     const [latitude, setLatitude] = useState("")
     const [longitude, setLongitude] = useState("")
@@ -17,7 +16,7 @@ const AddLocationForm = () => {
         const location = { title, latitude, longitude }
 
         const response = await fetch(
-            "https://rusalangit-gis-backend.vercel.app/api/locations",
+            `${import.meta.env.VITE_EXPRESS_URI}/api/locations`,
             {
                 method: "POST",
                 body: JSON.stringify(location),
