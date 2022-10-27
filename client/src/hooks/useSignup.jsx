@@ -14,8 +14,10 @@ export const useSignup = () => {
             `${import.meta.env.VITE_EXPRESS_URI}/api/user/signup`,
             {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
             }
         )
 
@@ -23,15 +25,14 @@ export const useSignup = () => {
 
         if (!response.ok) {
             setIsLoading(false)
-            setError(error)
+            setError(json.error)
         }
 
         if (response.ok) {
             localStorage.setItem("user", JSON.stringify(json))
             dispatch({ type: "LOGIN", payload: json })
+            setIsLoading(false)
         }
-
-        setIsLoading(false)
     }
 
     return { signup, isLoading, error }

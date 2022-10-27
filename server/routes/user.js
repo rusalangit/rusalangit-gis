@@ -1,9 +1,16 @@
 const express = require("express")
 
 // Controller Function
-const { signinUser, signupUser } = require("../controllers/userController")
+const {
+    signinUser,
+    signupUser,
+    getAllUsers,
+} = require("../controllers/userController")
 
 const router = express.Router()
+
+// Get All Users
+router.get("/", getAllUsers)
 
 // Sign In Route
 router.post("/signin", signinUser)

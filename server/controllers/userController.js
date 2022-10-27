@@ -6,6 +6,12 @@ const createToken = (_id) => {
     return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" })
 }
 
+const getAllUsers = async (req, res) => {
+    const user = await User.find({}).sort({ createdAt: -1 })
+
+    res.status(200).json(user)
+}
+
 // Signin User
 const signinUser = async (req, res) => {
     const { email, password } = req.body
@@ -38,4 +44,4 @@ const signupUser = async (req, res) => {
     }
 }
 
-module.exports = { signinUser, signupUser }
+module.exports = { signinUser, signupUser, getAllUsers }
